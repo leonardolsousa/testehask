@@ -1,0 +1,77 @@
+--> Session
+
+-> informacao gravada no lado servidor da forma "chave" "valor"  
+                                                  /\       /\
+                                                string   string
+
+
+-> para lembrar informacoes do usuario
+
+-> autenticação: a session "lembrará" se o usuário deu informações corretas de login e senha
+
+
+                 _______
+                |       |     |------> user e senha OK (gravar session)
+1) Get -------->|/login |-----|
+                |_______|     |------> user e senha FAIL (não gravar session)
+                
+                
+2) Para cada rota (que se faça necessário o usuário estar logado) basta checar a session
+
+No exemplo de hoje,
+setSession "_ID" |____"3"____|
+                  ID da tabela usuario
+                  
+                                                      |---> Nothing
+Para saber quem é, basta usar lookupSession "_ID" ----|
+                                                      |---> Just
+                                                     
+-------------------------------------------------------------------------------------------------------------------------------
+
+--> Autorização:
+
+1) Authorized -> 200 OK para a rota (ex: login)
+
+2) AuthenticationRequired -> 303, ou seja, redireciona para authRoute (rota definida no Yesod que representa o login) (ex: logout)
+
+3) Unauthorized "msg" -> 400, ou seja, página de erro
+
+ESSA PORRA É SÓ POR ROTA 
+
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+/ HomeR GET (1)
+/login LoginR GET POST (1)
+/usuario UsuarioR GET POST (1)
+/perfil/#UsersID PerfilR GET (1)(se estiver gravado) (2)(se não estiver gravado) depende da sessão
+/admin AdminR GET
+Just "Admin" (1)
+Just _ _ (3)
+Nothing (2)
+
+
+toWidget PRA LUCIUS
+whamletFile PRA HAMLET
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+login: root
+senha: root
+ ________
+| enviar |
+|________|
+
+- Ler form
+- SELECT * FROM Users
+  WHERE login="root" AND senha="root"
+  
+--------------------------------------------------------------------------------------------------------------------------------
+
+
+
+(pack $ show $ fromSqlKey pid)
+
+Key a -> Int64
+Int64 -> String
+String -> Text
