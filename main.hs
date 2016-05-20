@@ -135,7 +135,7 @@ getLogoutR = do
          <h1> ADEUS!
      |]
 
-connStr = "dbname=dd9en8l5q4hh2a host=ec2-107-21-219-201.compute-1.amazonaws.com user=kpuwtbqndoeyqb password=aCROh525uugAWF1l7kahlNN3E0 port=5432"
+connStr = "dbname=dcgjjp8ek6pgdd host=ec2-54-163-240-97.compute-1.amazonaws.com user=vseyysarcqyapk password=DmE4e2wzFXsDcexsBU0ZDRGF6w port=5432"
 
 main::IO()
 main = runStdoutLoggingT $ withPostgresqlPool connStr 10 $ \pool -> liftIO $ do 

@@ -75,3 +75,30 @@ senha: root
 Key a -> Int64
 Int64 -> String
 String -> Text
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+GITHUB
+
+git init
+ver .gitignore
+git add .
+se errou em algum lugar: git reset -> apaga alterações
+git remote add origin ENDEREÇO DO REPOSITORIO -> adiciona remotamente
+git commit -m "msg" -> atualização local
+git push origin master -> local para remoto
+
+@@@@@@@@ APÓS A PRIMEIRA VEZ @@@@@@@@@
+
+git commit -m "msg" -> atualização local
+git push origin master -> local para remoto
+
+@@@@@@@@ PARA PEGAR CODIGO A QUALQUER MOMENTO @@@@@@@@@@@
+
+git clone <endereço>
+
+-----------------------------------------------------------------------------
+
+Google: GIT GUIA PRÁTICO
+
+
